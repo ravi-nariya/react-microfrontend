@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(120deg, #e8ecef 0%, #f4f7f9 45%, #e2e7ea 100%);
+  color: #1f2933;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.shell-header {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.shell-header p {
+  color: #486581;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.06);
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 1px solid #bcccdc;
+  border-radius: 8px;
+  padding: 0.45rem 0.8rem;
+  background: #f0f4f8;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d9e2ec;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hint {
+  color: #627d98;
+  font-size: 0.92rem;
+}
+
+.kpis {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.kpi {
+  border: 1px solid #d9e2ec;
+  border-radius: 10px;
+  padding: 0.6rem;
+  display: grid;
+  gap: 0.25rem;
+  background: #f8fbfd;
+}
+
+.kpi span {
+  font-size: 0.82rem;
+  color: #627d98;
+}
+
+.kpi strong {
+  font-size: 1rem;
+}
+
+.transfer-form {
+  display: grid;
+  grid-template-columns: 1fr 140px auto;
+  gap: 0.5rem;
+}
+
+.transfer-form input {
+  border: 1px solid #bcccdc;
+  border-radius: 8px;
+  padding: 0.48rem 0.6rem;
+}
+
+.event-list {
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.event-list li {
+  border: 1px solid #e4e7eb;
+  border-radius: 8px;
+  padding: 0.48rem 0.55rem;
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.36rem;
+  border-radius: 999px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.badge-credit {
+  color: #0b6e4f;
+  background: #e3f9ef;
+  border-color: #b8e8d6;
+}
+
+.badge-debit {
+  color: #8f2d12;
+  background: #fdeee8;
+  border-color: #f5cdbf;
+}
+
+.badge-alert {
+  color: #7a4e00;
+  background: #fff7e0;
+  border-color: #f2dda4;
+}
+
+@media (max-width: 720px) {
+  .transfer-form {
+    grid-template-columns: 1fr;
+  }
+
+  .event-list li {
+    grid-template-columns: 1fr;
+  }
+}

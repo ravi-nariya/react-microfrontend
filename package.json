@@ -1,0 +1,18 @@
+{
+  "name": "react-mfa-app",
+  "private": true,
+  "workspaces": [
+    "core-banking-system",
+    "loans-console",
+    "investments-console"
+  ],
+  "scripts": {
+    "predev": "node -e \"const { execSync } = require('node:child_process'); try { const pids = execSync('lsof -ti tcp:3000,tcp:3001,tcp:3002', { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim(); if (pids) { execSync('kill ' + pids.split(/\\s+/).join(' ')); } } catch {}\"",
+    "dev": "REMOTE_MODE=preview concurrently \"npm run build:watch --workspace=loans-console\" \"sh -c 'until [ -f loans-console/dist/remoteEntry.js ]; do sleep 1; done; npm run preview --workspace=loans-console'\" \"npm run build:watch --workspace=investments-console\" \"sh -c 'until [ -f investments-console/dist/remoteEntry.js ]; do sleep 1; done; npm run preview --workspace=investments-console'\" \"npm run dev --workspace=core-banking-system\"",
+    "build": "npm run build --workspace=loans-console && npm run build --workspace=investments-console && npm run build --workspace=core-banking-system",
+    "preview": "concurrently \"npm run preview --workspace=loans-console\" \"npm run preview --workspace=investments-console\" \"npm run preview --workspace=core-banking-system\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
